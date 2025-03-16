@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Tools - Image & PDF Tools</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Tool Description Section */
+.tool-description {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.tool-description h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.tool-description p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Tool Interface Section */
+.tool-interface {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.tool-interface input[type="file"] {
+    display: none;
+}
+
+.tool-interface label {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #007bff;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.tool-interface label:hover {
+    background: #0056b3;
+}
+
+.tool-interface button {
+    padding: 12px 24px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 20px;
+}
+
+.tool-interface button:hover {
+    background: #218838;
+}
+
+/* Result Section */
+#result-section {
+    margin-top: 20px;
+    display: none; /* Hidden by default */
+}
+
+#result-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#download-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+#download-link:hover {
+    background: #0056b3;
+}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">Image & PDF Tools</div>
+      <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="image-tools.html">Image Tools</a></li>
+            <li><a href="pdf-tools.html">PDF Tools</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Image Tools Section -->
+  <section id="image-tools" class="tools-section">
+    <div class="container">
+      <h2>Image Tools</h2>
+      <div class="tool-grid">
+        <div class="tool-card">
+          <i class="fas fa-file-image"></i>
+          <h3>Image Compression</h3>
+          <p>Reduce image size without losing quality.</p>
+          <a href="compression.html" class="btn">Use Tool</a>
+        </div>
+        <div class="tool-card">
+          <i class="fas fa-eraser"></i>
+          <h3>Background Removal</h3>
+          <p>Remove backgrounds from images automatically.</p>
+          <a href="background-removal.html" class="btn">Use Tool</a>
+        </div>
+        <div class="tool-card">
+          <i class="fas fa-magic"></i>
+          <h3>Quality Enhancement</h3>
+          <p>Improve image sharpness and resolution.</p>
+          <a href="quality-enhancement.html" class="btn">Use Tool</a>
+        </div>
+        <div class="tool-card">
+          <i class="fas fa-exchange-alt"></i>
+          <h3>Format Conversion</h3>
+          <p>Convert images to JPG, PNG, WebP, etc.</p>
+          <a href="format-conversion.html" class="btn">Use Tool</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#" class="cursor">Privacy Policy</a>
+        <a href="#" class="cursor">Terms of Service</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook crrsor"></i></a>
+        <a href="#"><i class="fab fa-twitter crrsor"></i></a>
+        <a href="#"><i class="fab fa-instagram crrsor"></i></a>
+      </div>
+      <p>&copy; 2025 Image & PDF Tools. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

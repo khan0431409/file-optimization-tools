@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quality Enhancement Tool</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Main Content */
+      main {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Tool Description Section */
+      .tool-description {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .tool-description h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .tool-description p {
+        font-size: 1.1rem;
+        color: #666;
+      }
+
+      /* Tool Interface Section */
+      .tool-interface {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .tool-interface input[type="file"] {
+        display: none;
+      }
+
+      .tool-interface label {
+        display: inline-block;
+        padding: 12px 24px;
+        background: #007bff;
+        color: #fff;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .tool-interface label:hover {
+        background: #0056b3;
+      }
+
+      .tool-interface button {
+        padding: 12px 24px;
+        background: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        margin-top: 20px;
+      }
+
+      .tool-interface button:hover {
+        background: #218838;
+      }
+
+      /* Result Section */
+      #result-section {
+        margin-top: 20px;
+        display: none; /* Hidden by default */
+      }
+
+      #result-section img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      #download-link {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 24px;
+        background: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: background 0.3s ease;
+      }
+
+      #download-link:hover {
+        background: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">Background Removal Tool</div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="image-tools.html">Image Tools</a></li>
+            <li><a href="pdf-tools.html">PDF Tools</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="tool-description">
+        <h2>Improve Image Sharpness and Resolution</h2>
+        <p>Upload your image and enhance its quality with our advanced tool.</p>
+      </section>
+      <section class="tool-interface">
+        <input type="file" id="image-input" accept="image/*" />
+        <label for="image-input">Upload Image</label>
+        <button id="enhance-btn">Enhance Quality</button>
+        <div id="result-section">
+          <img id="enhanced-img" src="" alt="Enhanced Image" />
+          <a id="download-link" href="#" download="enhanced-image.jpg"
+            >Download Enhanced Image</a
+          >
+        </div>
+      </section>
+    </main>
+     <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#" class="cursor">Privacy Policy</a>
+        <a href="#" class="cursor">Terms of Service</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook crrsor"></i></a>
+        <a href="#"><i class="fab fa-twitter crrsor"></i></a>
+        <a href="#"><i class="fab fa-instagram crrsor"></i></a>
+      </div>
+      <p>&copy; 2025 Image & PDF Tools. All rights reserved.</p>
+    </div>
+  </footer>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_UNIT_ID"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // JavaScript for Quality Enhancement
+      document
+        .getElementById("enhance-btn")
+        .addEventListener("click", function () {
+          const fileInput = document.getElementById("image-input");
+          const resultSection = document.getElementById("result-section");
+          const enhancedImg = document.getElementById("enhanced-img");
+          const downloadLink = document.getElementById("download-link");
+
+          if (fileInput.files.length === 0) {
+            alert("Please select an image to enhance.");
+            return;
+          }
+
+          const file = fileInput.files[0];
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            const img = new Image();
+            img.src = e.target.result;
+
+            img.onload = function () {
+              // Use a quality enhancement API or library here
+              // For now, we'll just display the uploaded image
+              enhancedImg.src = img.src;
+              downloadLink.href = img.src;
+              resultSection.style.display = "block";
+            };
+          };
+
+          reader.readAsDataURL(file);
+        });
+    </script>
+  </body>
+</html>

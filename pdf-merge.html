@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Merge Tool</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* General Styles */
+        body {
+          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+          margin: 0;
+          padding: 0;
+          background: #f9f9f9;
+          color: #333;
+          line-height: 1.6;
+        }
+  
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+        /* Main Content */
+        main {
+          padding: 20px;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+  
+        /* Tool Description Section */
+        .tool-description {
+          text-align: center;
+          margin-bottom: 40px;
+        }
+  
+        .tool-description h2 {
+          font-size: 2rem;
+          margin-bottom: 10px;
+        }
+  
+        .tool-description p {
+          font-size: 1.1rem;
+          color: #666;
+        }
+  
+        /* Tool Interface Section */
+        .tool-interface {
+          background: #fff;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          text-align: center;
+        }
+  
+        .tool-interface input[type="file"] {
+          display: none;
+        }
+  
+        .tool-interface label {
+          display: inline-block;
+          padding: 12px 24px;
+          background: #007bff;
+          color: #fff;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: background 0.3s ease;
+        }
+  
+        .tool-interface label:hover {
+          background: #0056b3;
+        }
+  
+        .tool-interface button {
+          padding: 12px 24px;
+          background: #28a745;
+          color: #fff;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: background 0.3s ease;
+          margin-top: 20px;
+        }
+  
+        .tool-interface button:hover {
+          background: #218838;
+        }
+  
+        /* Result Section */
+        #result-section {
+          margin-top: 20px;
+          display: none; /* Hidden by default */
+        }
+  
+        #download-link {
+          display: inline-block;
+          margin-top: 20px;
+          padding: 12px 24px;
+          background: #007bff;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 6px;
+          transition: background 0.3s ease;
+        }
+  
+        #download-link:hover {
+          background: #0056b3;
+        }
+      </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+          <div class="logo">Background Removal Tool</div>
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="image-tools.html">Image Tools</a></li>
+              <li><a href="pdf-tools.html">PDF Tools</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    <main>
+        <section class="tool-description">
+            <h2>Merge Multiple PDF Files</h2>
+            <p>Combine multiple PDF files into a single document.</p>
+        </section>
+        <section class="tool-interface">
+            <input type="file" id="pdf-input" class="file-input" accept="application/pdf" multiple>
+            <label for="pdf-input">Upload PDFs</label>
+            <button id="merge-btn">Merge PDFs</button>
+            <div id="result-section">
+                <a id="download-link" href="#" download="merged.pdf">Download Merged PDF</a>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-links">
+          <a href="#" class="cursor">Privacy Policy</a>
+          <a href="#" class="cursor">Terms of Service</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook crrsor"></i></a>
+          <a href="#"><i class="fab fa-twitter crrsor"></i></a>
+          <a href="#"><i class="fab fa-instagram crrsor"></i></a>
+        </div>
+        <p>&copy; 2025 Image & PDF Tools. All rights reserved.</p>
+      </div>
+    </footer>
+    <script>
+        // JavaScript for PDF Merge
+        document.getElementById('merge-btn').addEventListener('click', function () {
+            const fileInput = document.getElementById('pdf-input');
+            const resultSection = document.getElementById('result-section');
+            const downloadLink = document.getElementById('download-link');
+
+            if (fileInput.files.length === 0) {
+                alert('Please select PDF files to merge.');
+                return;
+            }
+
+            const files = Array.from(fileInput.files);
+            const readerPromises = files.map(file => {
+                return new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        resolve(e.target.result);
+                    };
+                    reader.readAsArrayBuffer(file);
+                });
+            });
+
+            Promise.all(readerPromises).then((fileBuffers) => {
+                // Simulate merging (replace with actual merge logic)
+                const mergedBlob = new Blob(fileBuffers, { type: 'application/pdf' });
+                const url = URL.createObjectURL(mergedBlob);
+                downloadLink.href = url;
+                resultSection.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
